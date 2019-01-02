@@ -1,0 +1,27 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #24272d
+}
+
+header {
+	background: white;
+	padding: 20px;
+}
+
+header > h1 {
+	color: black;
+	text-align: center;
+	font-family: Asap, sans-serif;
+	
+}
+
+
+img {
+	height: 100px;	
+	width: 100px;
+}
