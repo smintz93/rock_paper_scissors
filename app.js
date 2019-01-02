@@ -21,20 +21,48 @@ getComputerChoice = () => {
 win = (userChoice, computerChoice) => {
 	userScore++
 	userScore_span.innerHTML = userScore;
-	result_p.innerHTML = `${convertToWord(userChoice)} beats ${convertToWord(computerChoice)} You Win!`;
+	const smallUserWord = "user".fontsize(3).sub();
+	const smallCompWord = "comp".fontsize(3).sub();
+	result_p.innerHTML = `${convertToWord(userChoice)}${smallUserWord} beats ${convertToWord(computerChoice)} ${smallCompWord} You Win!`;
+
+	// add styling 
+
+	let greenGlow = document.getElementById(userChoice).classList.add('green-glow');
+
+	// removing glow after 2 second
+	setTimeout(() => {
+		{document.getElementById(userChoice).classList.remove('green-glow')}
+	}, 1000)
+	
 
 }
 
 lose = (userChoice, computerChoice) => {
-	// console.log('lose')
 	compScore++
 	compScore_span.innerHTML = compScore;
-	result_p.innerHTML = `${convertToWord(userChoice)} losses to ${convertToWord(computerChoice)} You Lose!`;
+	const smallUserWord = "user".fontsize(3).sup();
+	const smallCompWord = "comp".fontsize(3).sup();
+	result_p.innerHTML = `${convertToWord(userChoice)}${smallUserWord} losses to ${convertToWord(computerChoice)}${smallCompWord}. You Lose!`;
+
+	document.getElementById(userChoice).classList.add('red-glow');
+
+	setTimeout(() => {
+		{document.getElementById(userChoice).classList.remove('red-glow')}
+	}, 1000)
 }
 
-draw = () => {
-	// console.log('draw');
+draw = (userChoice, computerChoice) => {
+	const smallUserWord = "user".fontsize(3).sup();
+	const smallCompWord = "comp".fontsize(3).sup();
+	result_p.innerHTML = `${convertToWord(userChoice)}${smallUserWord} ties with ${convertToWord(computerChoice)}${smallCompWord}. Draw!`;
+
+	document.getElementById(userChoice).classList.add('gray-glow');
+
+	setTimeout(() => {
+		{document.getElementById(userChoice).classList.remove('gray-glow')}
+	}, 1000)
 }
+
 
 convertToWord = (letter) => {
 	if (letter === "r") return "Rock";
@@ -45,7 +73,6 @@ convertToWord = (letter) => {
 game = (userChoice) => {
 	// console.log("this user choice" + userChoice)
 	const computerChoice = getComputerChoice();
-
 	// console.log("user choice => " + userChoice);
 	// console.log("computer choice => " +computerChoice);
 
@@ -71,7 +98,6 @@ game = (userChoice) => {
 
 // game('s');
 
-
 main = () => {
 	rock_div.addEventListener("click", () => {
 		game("r");
@@ -87,8 +113,6 @@ main = () => {
 };
 
 main();
-
-
 
 
 
