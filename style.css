@@ -71,12 +71,15 @@ header > h1 {
 .choices {
 	margin-top: 50px;
 	text-align: center;
+
 }
 
 .choice {
 	display: inline-block;
 	padding: 10px;
 	margin: 0 15px;
+	border: 3px solid white;
+	border-radius: 50%
 }
 
 .choice:hover {
@@ -87,6 +90,7 @@ header > h1 {
 img {
 	height: 100px;	
 	width: 100px;
+
 }
 
 
